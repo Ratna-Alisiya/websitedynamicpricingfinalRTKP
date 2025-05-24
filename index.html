@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Packaging Rendang</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Scan QR atau Gambar Label Indikator</h1>
+
+    <div id="reader" style="width:300px; margin: auto;"></div>
+    <div id="quality"></div>
+    <div id="price"></div>
+    <div id="colorSample" style="width:50px; height:50px; margin: 1rem auto; border-radius: 8px;"></div>
+
+    <h2>Deteksi Warna dari Gambar Label</h2>
+    <input type="file" id="imageInput" accept="image/*">
+    <canvas id="colorCanvas" width="300" height="300" style="display:none;"></canvas>
+
+    <!-- Referensi gambar label -->
+    <img id="ref-sangat" src="red_brown.png" style="display:none;">
+    <img id="ref-masih" src="red_yellow.png" style="display:none;">
+    <img id="ref-kurang" src="yellow.png" style="display:none;">
+    <canvas id="refCanvas" style="display:none;"></canvas>
+
+    <div id="generator">
+      <h2>Generate QR dari Nilai RGB</h2>
+      <input type="number" id="r" placeholder="R (0-255)" min="0" max="255">
+      <input type="number" id="g" placeholder="G (0-255)" min="0" max="255">
+      <input type="number" id="b" placeholder="B (0-255)" min="0" max="255">
+      <button onclick="generateQR()">Buat QR</button>
+      <canvas id="qrCanvas"></canvas>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
